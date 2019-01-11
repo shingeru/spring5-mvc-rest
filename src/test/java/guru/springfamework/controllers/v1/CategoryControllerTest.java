@@ -1,7 +1,9 @@
 package guru.springfamework.controllers.v1;
 
 import guru.springfamework.api.v1.model.CategoryDTO;
+import guru.springfamework.api.v1.model.CustomerDTO;
 import guru.springfamework.domain.Category;
+import guru.springfamework.domain.Customer;
 import guru.springfamework.services.CategoryService;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +20,9 @@ import java.util.List;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -65,6 +69,8 @@ public class CategoryControllerTest {
 
     }
 
+
+
     @Test
     public void testGetCategoryByName() throws Exception {
         CategoryDTO categoryDTO = new CategoryDTO();
@@ -79,4 +85,5 @@ public class CategoryControllerTest {
                 .andExpect(jsonPath("$.name", equalTo(NAME)));
 
     }
+
 }
